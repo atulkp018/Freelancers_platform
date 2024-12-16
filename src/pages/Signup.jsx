@@ -1,20 +1,19 @@
-import React from "react";
+import React from 'react';
+import SignupForm from '../components/Auth/SignupForm';
 
-function Signup() {
+const Signup = () => {
+  const handleSignup = (data) => {
+    // Handle the signup logic, e.g., create a new user.
+    console.log('Signing up with:', data);
+  };
+
   return (
-    <div>
-      <h1>Signup</h1>
-      <form>
-        <label>Email:
-          <input type="email" name="email" required />
-        </label>
-        <label>Password:
-          <input type="password" name="password" required />
-        </label>
-        <button type="submit">Signup</button>
-      </form>
+    <div className="flex items-center justify-center min-h-screen bg-gray-200">
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+        <SignupForm onSignup={handleSignup} />
+      </div>
     </div>
   );
-}
+};
 
 export default Signup;

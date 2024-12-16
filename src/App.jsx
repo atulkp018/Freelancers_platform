@@ -1,20 +1,24 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Navbar from "./components/Navbar";
+import { BrowserRouter as Router } from "react-router-dom";
+import { RoutesComponent } from "./routes";
+import { AuthProvider } from "./contexts/AuthProvider";
+import { TaskProvider } from "./contexts/TaskProvider";
+import { ChatProvider } from "./contexts/ChatProvider";
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-    </div>
+    <Router>
+      <AuthProvider>
+        <TaskProvider>
+          <ChatProvider>
+            <div className="min-h-screen bg-gray-100 text-gray-800">
+              <RoutesComponent />
+            </div>
+          </ChatProvider>
+        </TaskProvider>
+      </AuthProvider>
+    </Router>
   );
-}
+};
+
 export default App;

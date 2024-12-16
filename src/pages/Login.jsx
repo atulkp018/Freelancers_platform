@@ -1,21 +1,19 @@
-import React from "react";
+import React from 'react';
+import LoginForm from '../components/Auth/LoginForm';
 
-function Login() {
+const Login = () => {
+  const handleLogin = (data) => {
+    // Handle the login logic, e.g., authenticate the user.
+    console.log('Logging in with:', data);
+  };
+
   return (
-    <div>
-      <h1>Login</h1>
-      <form>
-        <label>Email:
-          <input type="email" name="email" required />
-        </label>
-        <label>Password:
-          <input type="password" name="password" required />
-        </label>
-        <button type="submit">Login</button>
-      </form>
+    <div className="flex items-center justify-center min-h-screen bg-gray-200">
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+        <LoginForm onLogin={handleLogin} />
+      </div>
     </div>
   );
-}
+};
 
 export default Login;
-
